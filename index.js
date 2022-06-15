@@ -36,6 +36,12 @@ function execSQLQuery(sqlQry, res){
     });
 }
 
-router.get('/clientes', (req, res) => {
+router.get('/contato', (req, res) => {
     execSQLQuery('SELECT id, nome, telefone, email FROM tb_cliente_contato', res);
 });
+
+router.get('/contato/:nome?', (req, res) => {
+    let filter = '';
+    if (req.params.nome) filter = ' WHERE nome LIKE "%' + req.params.nome + '%"';
+    execSQLQuery('SELECT id, nome, telefone, email FROM tb_cliente_contato' + filter, res);
+    });

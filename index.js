@@ -20,10 +20,10 @@ console.log('Server running on port ' + port);
 
 function execSQLQuery(sqlQry, res){
     const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'dbProposta'
+        host: '192.168.1.175', //ip do banco de dados
+        user: 'rec',
+        password: 'rec*2021',
+        database: 'dbproposta'
     });
 
     connection.query(sqlQry, function (error, results, fields) {

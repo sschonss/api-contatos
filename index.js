@@ -45,3 +45,13 @@ router.get('/contato/:nome?', (req, res) => {
     if (req.params.nome) filter = ' WHERE nome LIKE "%' + req.params.nome + '%"';
     execSQLQuery('SELECT id, nome, telefone, email FROM tb_cliente_contato' + filter, res);
     });
+
+router.get('/cliente', (req, res) => {
+    execSQLQuery('SELECT id, fantasia FROM tb_cliente', res);
+});
+
+router.get('/cliente/:fantasia?', (req, res) => {
+    let filter = '';
+    if (req.params.fantasia) filter = ' WHERE fantasia LIKE "%' + req.params.fantasia + '%"';
+    execSQLQuery('SELECT id, fantasia FROM tb_cliente' + filter, res);
+});

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const port = 3000;
+const port = 3001;
 const mysql = require('mysql');
 
 //configurando body-parser para pegar os dados submetidos via POST
